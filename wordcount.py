@@ -57,10 +57,10 @@ def build_dict(filename):
     
     return contagem
 def print_worlds(filename):
-    dicionario = build_dict(filename)
-    aux=sorted(dicionario.keys())
+   dict = build_dict(filename)
+    aux=sorted(dict.keys())
     for palavra in aux:
-        print(({}, {}).format(palavra,dicionario[palavra]))
+        print(({}, {}).format(palavra,dict[palavra]))
     
 def print_top(filename):
     countagem =build_dict(filename)
