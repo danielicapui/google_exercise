@@ -40,6 +40,36 @@ print_words() and print_top().
 import sys
 
 # +++your code here+++
+def sort_by_words(words):
+    ake=words[-1]
+    return ake
+def build_dict(filename):
+    a= open(filename, newline='')
+    palavras= a.read.split()
+    contagem= {}
+    for palavra in palavras:
+        palavra=palavra.lower()
+        if palavra not in contagem:
+            contagem[palavra]=1
+        else:
+            contagem[palavra]+=1
+    a.close()
+    
+    return contagem
+def print_worlds(filename):
+    dicionario = build_dict(filename)
+    aux=sorted(dicionario.keys())
+    for palavra in aux:
+        print(({}, {}).format(palavra,dicionario[palavra]))
+    
+def print_top(filename):
+    countagem =build_dict(filename)
+    x= 0
+    akes= sorted(countagem.ake(), key=sort_by_words, reverse=True)
+    for ake in akes[:20]:
+        print (ake[0] + ': ' + str(ake[1]) + ' times')
+        x += 1
+    pass
 # Define print_words(filename) and print_top(filename) functions.
 # You could write a helper utility function that reads a file
 # and builds and returns a word/count dict for it.
@@ -51,7 +81,7 @@ import sys
 # calls the print_words() and print_top() functions which you must define.
 def main():
   if len(sys.argv) != 3:
-    print 'usage: ./wordcount.py {--count | --topcount} file'
+    print ('usage: ./wordcount.py {--count | --topcount} file')
     sys.exit(1)
 
   option = sys.argv[1]
@@ -61,7 +91,7 @@ def main():
   elif option == '--topcount':
     print_top(filename)
   else:
-    print 'unknown option: ' + option
+    print ('unknown option: ' + option)
     sys.exit(1)
 
 if __name__ == '__main__':
