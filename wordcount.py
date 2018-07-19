@@ -39,38 +39,37 @@ print_words() and print_top().
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import sys
-
+from operator import *
 # +++your code here+++
 def sort_by_words(words):
     ake=words[-1]
     return ake
 def build_dict(filename):
+    contagem= {}
     a= open(filename, newline='')
     palavras= a.read().split()
-    contagem= {}
     for palavra in palavras:
         palavra=palavra.lower()
         if palavra not in contagem:
             contagem[palavra]=1
         else:
             contagem[palavra]+=1
-    a.close()
+    a.close()  
     
     return contagem
 def print_words(filename):
-    dict = build_dict(filename)
-    aux=sorted(dict.keys())
+    d = build_dict(filename)
+    aux= sorted(d.keys())
     for palavra in aux:
-        print(palavra,dict[palavra])
-    
+        print(("{} : {}").format(palavra,d[palavra]))
+       
 def print_top(filename):
-    countagem =build_dict(filename)
-    x= 0
-    akes= sorted(countagem.ake(), key=sort_by_words, reverse=True)
-    for ake in akes[:20]:
-        print (ake[0] + ': ' + str(ake[1]) + ' times')
-        x += 1
+    d = build_dict(filename)
     
+    akes = sorted(d.items(), key=sort_by_words, reverse=True)
+    for palavra in akes[:20]:
+        print (palavra[0] + ': ' + str(palavra[1]) + ' repetições')
+        
 # Define print_words(filename) and print_top(filename) functions.
 # You could write a helper utility function that reads a file
 # and builds and returns a word/count dict for it.
