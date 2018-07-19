@@ -36,7 +36,8 @@ Optional: define a helper function to avoid code duplication inside
 print_words() and print_top().
 
 """
-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import sys
 
 # +++your code here+++
@@ -45,7 +46,7 @@ def sort_by_words(words):
     return ake
 def build_dict(filename):
     a= open(filename, newline='')
-    palavras= a.read.split()
+    palavras= a.read().split()
     contagem= {}
     for palavra in palavras:
         palavra=palavra.lower()
@@ -56,11 +57,11 @@ def build_dict(filename):
     a.close()
     
     return contagem
-def print_worlds(filename):
-   dict = build_dict(filename)
+def print_words(filename):
+    dict = build_dict(filename)
     aux=sorted(dict.keys())
     for palavra in aux:
-        print(({}, {}).format(palavra,dict[palavra]))
+        print(palavra,dict[palavra])
     
 def print_top(filename):
     countagem =build_dict(filename)
@@ -69,7 +70,7 @@ def print_top(filename):
     for ake in akes[:20]:
         print (ake[0] + ': ' + str(ake[1]) + ' times')
         x += 1
-    pass
+    
 # Define print_words(filename) and print_top(filename) functions.
 # You could write a helper utility function that reads a file
 # and builds and returns a word/count dict for it.

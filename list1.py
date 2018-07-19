@@ -48,7 +48,7 @@ def front_x(words):
             a.append(palavras)
         else:
             b.append(palavras)
-    return sorted(b)+sorted(a)
+    return sorted(a)+sorted(b)
 
 # C. sort_last
 # Given a list of non-empty tuples, return a list sorted in increasing
